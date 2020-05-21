@@ -6,13 +6,21 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import Collapse from "@material-ui/core/Collapse";
 import { Link } from "react-router-dom";
-import "./SidebarItem.css"
+import "./SidebarItem.css";
 
-function SidebarItem({active, depthStep = 10, depth = 0, expanded, item, location, ...rest }) {
+function SidebarItem({
+  active,
+  depthStep = 10,
+  depth = 0,
+  expanded,
+  item,
+  location,
+  ...rest
+}) {
   const [collapsed, setCollapsed] = React.useState(true);
   const { label, items, Icon, link, onClick: onClickProp } = item;
   function toggleCollapse() {
-    setCollapsed(prevValue => !prevValue);
+    setCollapsed((prevValue) => !prevValue);
   }
 
   function onClick(e) {
@@ -28,10 +36,7 @@ function SidebarItem({active, depthStep = 10, depth = 0, expanded, item, locatio
 
   if (Array.isArray(items) && items.length) {
     expandIcon = !collapsed ? (
-      <ExpandLessIcon
-        className="sidebar-item-expand-arrow  sidebar-item-expand-arrow-expanded"
-    
-      />
+      <ExpandLessIcon className="sidebar-item-expand-arrow  sidebar-item-expand-arrow-expanded" />
     ) : (
       <ExpandMoreIcon className="sidebar-item-expand-arrow" />
     );
@@ -39,24 +44,24 @@ function SidebarItem({active, depthStep = 10, depth = 0, expanded, item, locatio
 
   return (
     <>
-    <Link to={link}  className="link">
-      <ListItem
-        className="sidebar-item"
-        onClick={onClick}
-        button
-        dense
-        {...rest}
-      >
-        
-        <div
-          style={{ paddingLeft: depth * depthStep }}
-          className="sidebar-item-content"
+      <Link to={link} className="link">
+        <ListItem
+          className="sidebar-item"
+          onClick={onClick}
+          button
+          dense
+          {...rest}
+          key={link}
         >
-          <div className="sidebar-item-text">{label}</div>
-          {Icon && <Icon className="sidebar-item-icon" fontSize="small" />}
-        </div>
-        {expandIcon}
-      </ListItem>
+          <div
+            style={{ paddingLeft: depth * depthStep }}
+            className="sidebar-item-content"
+          >
+            <div className="sidebar-item-text">{label}</div>
+            {Icon && <Icon className="sidebar-item-icon" fontSize="small" />}
+          </div>
+          {expandIcon}
+        </ListItem>
       </Link>
       <Collapse in={!collapsed} timeout="auto" unmountOnExit>
         {Array.isArray(items) ? (

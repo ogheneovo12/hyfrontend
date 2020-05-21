@@ -37,7 +37,7 @@ import {gql} from "apollo-boost"
 }
 
 `
-const getYouths=gql`
+const getYouthsQuery=gql`
 {
   youths{
    Name,
@@ -51,4 +51,4 @@ const getYouths=gql`
 }
 
 `
-export {getBirthDayQuery,getYouths}
+export {getBirthDayQuery,getYouthsQuery}

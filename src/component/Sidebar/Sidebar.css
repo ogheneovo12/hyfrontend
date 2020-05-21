@@ -1,21 +1,19 @@
 .sidebar {
-    max-width: 300px;
-    width:250px;
-    height: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    background:#072F5F;  
-    color:#fff;
-    padding-top:10px;
-    position: fixed;
-    left:0;
-    top:0;
-    bottom:0px;
-  }
+  width: 18%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #072f5f;
+  color: #fff;
+  padding-top: 10px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0px;
+}
 
-  .sidebar h2{
-    text-align: center;
-    color:goldenrod;
-    text-align: 1px 1px 6px rgba(0,0,0,0.5);
-    margin:10px 0;
-  }
-  
+.sidebar h2 {
+  text-align: center;
+  color: goldenrod;
+  text-align: 1px 1px 6px rgba(0, 0, 0, 0.5);
+  margin: 10px 0;
+}

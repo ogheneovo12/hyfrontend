@@ -1,10 +1,8 @@
 import React from "react"
-import {graphql} from "react-apollo"
-import {getYouths} from "../../graphql/queries"
-function Youth(){
+function Youths(){
     return(
       <div>Youth</div>
     )
   }
 
-export default graphql(getYouths)(Youth);
+export default Youths;

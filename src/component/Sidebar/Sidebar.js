@@ -1,17 +1,16 @@
-import React,{useContext} from "react";
-import {SidebarContext} from "./SidebarContext"
+import React, { useContext } from "react";
+import { SidebarContext } from "../../appContexts/SidebarContext";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
-import SidebarItem from "./SidebarItem/SidebarItem"
-import "./Sidebar.css"
-function Sidebar({depthStep, depth, expanded, location }) {
-   const items= useContext(SidebarContext);
-   console.log(items)
+import SidebarItem from "./SidebarItem/SidebarItem";
+import "./Sidebar.css";
+function Sidebar({ depthStep, depth, expanded, location }) {
+  const items = useContext(SidebarContext);
   return (
     <div className="sidebar">
-     <div className="title">
-         <h2>HY ADMIN</h2>
-         </div>
+      <div className="title">
+        <h2>HY ADMIN</h2>
+      </div>
       <List disablePadding dense>
         {items.map((sidebarItem, index) => (
           <React.Fragment key={`${sidebarItem.name}${index}`}>
@@ -23,7 +22,7 @@ function Sidebar({depthStep, depth, expanded, location }) {
                 depth={depth}
                 expanded={expanded}
                 item={sidebarItem}
-                location = {location}
+                location={location}
               />
             )}
           </React.Fragment>
@@ -32,6 +31,5 @@ function Sidebar({depthStep, depth, expanded, location }) {
     </div>
   );
 }
-
 
 export default Sidebar;
