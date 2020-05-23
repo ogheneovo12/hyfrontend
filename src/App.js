@@ -9,7 +9,8 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { YouthProvider } from "./appContexts/YouthContext";
 const client = new ApolloClient({
-  uri: "https://hybackend.herokuapp.com/graphql",
+  // uri: "https://hybackend.herokuapp.com/graphql",
+  uri: "http://localhost:5000/graphql",
 });
 function App() {
   return (

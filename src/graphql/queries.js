@@ -44,6 +44,7 @@ const getYouthsQuery=gql`
    Telephone_2,
    Telephone_1,
    Email,
+   Date_of_Birth,
    Marital_Status,
    Membership_Status,
   }

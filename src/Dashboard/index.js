@@ -29,7 +29,7 @@ export default function Home() {
   const classes = useStyles();
   const {
     currentBirthdays: { data: celebrants, birthdayloading },
-    youths: { data, loading },
+    youths: { youths, loading },
   } = useContext(YouthContext);
   return (
     <div className={`${classes.root} content`}>
@@ -62,8 +62,8 @@ export default function Home() {
                 <Typography variant="h4">
                   {loading
                     ? "loading.."
-                    : data
-                    ? data.youths.length
+                    : youths
+                    ? youths.length
                     : "loading"}
                 </Typography>
                 <Typography variant="h5" align="center">
@@ -112,8 +112,8 @@ export default function Home() {
                 <Typography variant="h4">
                   {loading
                     ? "loading.."
-                    : data
-                    ? data.youths.length
+                    : youths
+                    ? youths.length
                     : "loading"}
                 </Typography>
                 <Typography variant="h5" align="center">
