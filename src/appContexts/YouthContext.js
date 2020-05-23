@@ -16,7 +16,6 @@ export function YouthProvider({ children }) {
   useEffect(()=>{
     setYouth({data,loading,error});
     if(data){
-      console.log("in effectsS")
       setYouth({youths:data.youths,loading,error});
     }  
   },[data,loading,error])

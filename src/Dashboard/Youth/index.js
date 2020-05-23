@@ -26,9 +26,6 @@ export default function MaterialTableDemo() {
   
   const classes = useStyles();
   const {  youths:{youths,loading}, setYouth }  = useContext(YouthContext);
-  console.log("in tab");
-  console.log(youths,loading);
-
   const columns = [
       { title: 'Name', field: 'Name' },
       { title: 'Email', field: 'Email' },
