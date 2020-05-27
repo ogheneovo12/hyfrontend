@@ -60,11 +60,7 @@ export default function Home() {
                   align="center"
                 />
                 <Typography variant="h4">
-                  {loading
-                    ? "loading.."
-                    : youths
-                    ? youths.length
-                    : "loading"}
+                  {loading ? "loading.." : youths ? youths.length : "loading"}
                 </Typography>
                 <Typography variant="h5" align="center">
                   youths
@@ -110,11 +106,7 @@ export default function Home() {
                   align="center"
                 />
                 <Typography variant="h4">
-                  {loading
-                    ? "loading.."
-                    : youths
-                    ? youths.length
-                    : "loading"}
+                  {loading ? "loading.." : youths ? youths.length : "loading"}
                 </Typography>
                 <Typography variant="h5" align="center">
                   youths
