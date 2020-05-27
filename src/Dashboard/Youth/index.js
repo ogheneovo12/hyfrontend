@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 export default function MaterialTableDemo() {
   
   const classes = useStyles();
-  const {  youths:{youths,loading}, setYouth }  = useContext(YouthContext);
+  const {  youths:{youths,loading}, youthsOperations:{updateYouth,createYouth,deleteYouth} }  = useContext(YouthContext);
   const columns = [
       { title: 'Name', field: 'Name' },
       { title: 'Email', field: 'Email' },
@@ -63,47 +63,35 @@ export default function MaterialTableDemo() {
       data={youths}
       editable={{
         onRowAdd: (newData) =>
-          new Promise((resolve) => {
-            setTimeout(() => {
-              resolve();
-
-              setYouth((prevState) => {
-                const data = [...prevState.youths];
-                console.log("added")
-                data.push(newData);
-                return  {...prevState,youths:data};
-              });
-            }, 600);
-
-          }),
+        new Promise( (resolve)=>{
+          setTimeout(async () => {
+                 delete newData.__typename;
+                  await createYouth({variables:{id:newData.id,input:newData}})
+                  resolve() 
+                }, 600);
+              }) 
+              ,
         onRowUpdate: (newData, oldData) =>
-          new Promise((resolve) => {
-            setTimeout(() => {
-              resolve();
-              if (oldData) {
-                setYouth((prevState) => {
-                  const data = [...prevState.youths];
-                  data[data.indexOf(oldData)] = newData;
-                  return   {...prevState,youths:data};
-                });
-              }
-            }, 600);
-          }),
+        new Promise( (resolve)=>{
+          setTimeout(async () => {
+                 delete newData.__typename;
+                  await updateYouth({variables:{id:newData.id,input:newData}})
+                  resolve() 
+                }, 600);
+              }) 
+              ,
         onRowDelete: (oldData) =>
           new Promise((resolve) => {
-            setTimeout(() => {
-              resolve();
-              setYouth((prevState) => {
-                const data = [...prevState.youths];
-                data.splice(data.indexOf(oldData), 1);
-                return  {...prevState,youths:data};
-              });
+            setTimeout(async () => {
+              await deleteYouth({variables:{id:oldData.id}})
+              resolve() 
+             
             }, 600);
           }),
       }}
     />
    ):(
-      <Skeleton variant="rect" width="100%" height={118} animation="wave" />
+      <Skeleton variant="rect" width="100%" height={400} animation="wave" />
     )
 } 
     </Grid> 
