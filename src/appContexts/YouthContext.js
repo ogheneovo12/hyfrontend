@@ -64,6 +64,7 @@ export function YouthProvider({ children }) {
   });
   const [deleteYouth] = useMutation(deleteYouthQuery, {
     onCompleted: (data) => updateStateAfterDeleteMutation(data),
+    onError:(err)=>console.log(err)
   });
   //wrap mutation hooks into one object
   const youthsOperations = { setYouth, updateYouth, createYouth, deleteYouth };

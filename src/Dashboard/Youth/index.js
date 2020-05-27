@@ -85,6 +85,7 @@ export default function MaterialTableDemo() {
                 onRowDelete: (oldData) =>
                   new Promise((resolve) => {
                     setTimeout(async () => {
+                      console.log(oldData)
                       await deleteYouth({ variables: { id: oldData.id } });
                       resolve();
                     }, 600);
